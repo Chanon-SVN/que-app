@@ -4,16 +4,39 @@ import { RestHandlerService } from '../services/resthandler.service';
 
 @Component({
   templateUrl: './home.component.html',
-  providers: [RestHandlerService]
+  providers: [RestHandlerService],
+  styleUrls : ["./home.component.css"]
 })
 
 export class HomeComponent  {
+  public queue:Array<any>;
+  public name:string;
+  public topic:string;
+  public time:string;
+  public duration:string;
 
   constructor(private resthandler: RestHandlerService) {
-  //  let token = localStorage.getItem('token');
+    this.queue = [];
 
-  //  this.resthandler.postData({jwt:token}, '/user')
-  //  .subscribe(res => {
-  //  })
+    this.resthandler.getData('/ques')
+    .subscribe(res=>{
+      this.queue = res;
+    })
   } 
+
+  addQueue() {
+    let que = {
+      name:this.name,
+      topic:this.topic,
+      time:this.time,
+      duration:this.duration
+    }
+
+    this.resthandler.postData(que, '/create-que')
+    .subscribe(res=>{
+      console.log(res); 
+    })
+
+    this.queue.push(que);
+  }
 }

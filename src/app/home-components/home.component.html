@@ -1,1 +1,59 @@
-<h1>Home Component</h1>
+<div class="col-md-12 content que-form">
+  <div class="container">
+    <div class="col-md-6">
+      <h1><b>Queue App </b><span class="label label-default">Version 1.0</span></h1>
+      <p><i>For Zione, Zerp, CFO, Prodistribution, etc.</i></p>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>ชื่อผู้ขอเข้าพบ</label>
+        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label>หัวข้อที่จะสนทนา</label>
+        <input type="text" class="form-control" [(ngModel)]="topic" placeholder="Topic">
+      </div>
+      <div class="form-group">
+        <label>ขอเข้าพบช่วงเวลา</label>
+        <input type="text" class="form-control" [(ngModel)]="time" placeholder="เช่น 13:00น.">
+      </div>
+      <div class="form-group">
+        <label>ระยะเวลาเข้าพบ</label>
+        <input type="text" class="form-control" [(ngModel)]="duration" placeholder="เช่น 1 ชั่วโมง">
+      </div>
+      <div class="col-md-offset-5 space">
+        <button type="submit" (click)="addQueue()" class="btn btn-lg btn-default">Send form</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 content que-list">
+  <div class="container">
+    <h1 align="center">In Queue</h1>
+    <table class="table table-condensed space" align="center">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Topic</th>
+          <th>Time</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let element of queue; let i = index">
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{element.name}}</td>
+        <td>{{element.topic}}</td>
+        <td>{{element.time}}</td>
+        <td>{{element.duration}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-md-12 footer content">
+  <div class="container">
+    <p>Copyright@2017 Zione & Other Corp.</p>
+  </div>
+</div>
