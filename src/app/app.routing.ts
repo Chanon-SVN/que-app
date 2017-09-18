@@ -4,7 +4,10 @@ import { HomeComponent } from './home-components/home.component';
 import { PageNotFoundComponent} from './general-components/not-found/not-found.component';
 
 const appRoutes: Routes = [
-  { path: "", redirectTo:"/home", pathMatch:"full" },
+  { 
+    path: "", 
+    component: HomeComponent,
+  },
   { 
     path: "home", 
     component: HomeComponent,

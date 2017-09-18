@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RestHandlerService } from '../services/resthandler.service';
+import { Router }  from '@angular/router';
+
+declare let $:any;
 
 
 @Component({
@@ -15,7 +18,7 @@ export class HomeComponent  {
   public time:string;
   public duration:string;
 
-  constructor(private resthandler: RestHandlerService) {
+  constructor(private resthandler: RestHandlerService, private router:Router) {
     this.queue = [];
 
     this.resthandler.getData('/ques')
@@ -25,18 +28,28 @@ export class HomeComponent  {
   } 
 
   addQueue() {
-    let que = {
-      name:this.name,
-      topic:this.topic,
-      time:this.time,
-      duration:this.duration
+    if(this.name && this.topic && this.time && this.duration){
+      let que = {
+        name:this.name,
+        topic:this.topic,
+        time:this.time,
+        duration:this.duration
+      }
+
+      this.resthandler.postData(que, '/create-que')
+      .subscribe(res=>{
+        this.name = '';
+        this.topic = '';
+        this.time = '';
+        this.duration = '';
+
+        $('#success').modal('show')
+      })
+
+      this.queue.push(que);
+    }else{
+      $('#requiredfield').modal('show') 
     }
 
-    this.resthandler.postData(que, '/create-que')
-    .subscribe(res=>{
-      console.log(res); 
-    })
-
-    this.queue.push(que);
   }
 }

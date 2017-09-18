@@ -1,28 +1,29 @@
 <div class="col-md-12 content que-form">
   <div class="container">
     <div class="col-md-6">
-      <h1><b>Queue App </b><span class="label label-default">Version 1.0</span></h1>
+      <h1><b>Queue App </b></h1><h3>
+        <span class="label label-default">Version 1.0</span></h3>
       <p><i>For Zione, Zerp, CFO, Prodistribution, etc.</i></p>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <label>ชื่อผู้ขอเข้าพบ</label>
-        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name">
+        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name" required>
       </div>
       <div class="form-group">
         <label>หัวข้อที่จะสนทนา</label>
-        <input type="text" class="form-control" [(ngModel)]="topic" placeholder="Topic">
+        <input type="text" class="form-control" [(ngModel)]="topic" placeholder="Topic" required>
       </div>
       <div class="form-group">
         <label>ขอเข้าพบช่วงเวลา</label>
-        <input type="text" class="form-control" [(ngModel)]="time" placeholder="เช่น 13:00น.">
+        <input type="text" class="form-control" [(ngModel)]="time" placeholder="เช่น 13:00น." required>
       </div>
       <div class="form-group">
         <label>ระยะเวลาเข้าพบ</label>
-        <input type="text" class="form-control" [(ngModel)]="duration" placeholder="เช่น 1 ชั่วโมง">
+        <input type="text" class="form-control" [(ngModel)]="duration" placeholder="เช่น 1 ชั่วโมง" required>
       </div>
       <div class="col-md-offset-5 space">
-        <button type="submit" (click)="addQueue()" class="btn btn-lg btn-default">Send form</button>
+        <button type="submit" (click)="addQueue()" class="btn btn-lg btn-default">Booking</button>
       </div>
     </div>
   </div>
@@ -55,5 +56,35 @@
 <div class="col-md-12 footer content">
   <div class="container">
     <p>Copyright@2017 Zione & Other Corp.</p>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Queuing Success</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="requiredfield" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Please fill all of input fields. </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
   </div>
 </div>
