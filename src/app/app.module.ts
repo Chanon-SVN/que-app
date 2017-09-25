@@ -8,12 +8,13 @@ import { HomeModule } from './home-components/home.module';
 import { RestHandlerService } from './services/resthandler.service';
 import { PageNotFoundComponent } from './general-components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { AdminModule } from './admin-components/admin.module';
+import { LoginComponent } from './general-components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     HomeModule,
@@ -22,7 +23,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRouting, 
     FormsModule, 
     HttpModule
-//    AdminModule
   ],
   providers: [AppRoutingProviders],
   bootstrap: [AppComponent]
