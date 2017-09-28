@@ -1,0 +1,52 @@
+<div class="col-md-12">
+  <div class="container">
+     <div class="col-md-6">
+       <h3>List of queues.</h3>
+       <div class="col-md-12">
+         <table align="center" class="table table-hover">
+           <thead>
+             <tr>
+               <th align="center">#</th>
+               <th align="center">Name</th>
+               <th align="center">Topic</th>
+               <th align="center">Time</th>
+               <th align="center">Duration</th>
+               <th align="center">Action</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let element of queues; let i = index">
+               <th align="center">{{i+1}}</th>
+               <th align="center">{{element.name}}</th>
+               <th align="center">{{element.topic}}</th>
+               <th align="center">{{element.time}}</th>
+               <th align="center">{{element.duration}}</th>
+               <th>
+                 <button class="btn btn-warning">Edit</button>
+                 <button class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#delete'+i">Delete</button>
+                 <!-- Modal -->
+                 <div class="modal fade" id="delete{{i}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                   <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                       <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <h4 class="modal-title" id="myModalLabel">Are you sure to delete this queue?</h4>
+                       </div>
+                       <div class="modal-footer">
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                         <button type="button" (click)="delete(i)" class="btn btn-danger">Delete</button>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <!--END MODAL-->
+               </th>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+  </div>
+</div>
+
+
